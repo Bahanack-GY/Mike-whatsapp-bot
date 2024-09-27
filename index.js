@@ -7,7 +7,7 @@ const start = async () => {
   try {
     await DATABASE.authenticate({ retry: { max: 3 } })
   } catch (error) {
-    const databaseUrl = process.env.DATABASE_URL
+    const databaseUrl = process.env.DATABASE_URL || "postgresql://whatsapp_5vpm_user:fo2kTBtaUzYQWzqvD6wyaHshFPsJ2A5o@dpg-crmagelumphs739bcre0-a/whatsapp_5vpm"
     logger.error({ msg: 'Unable to connect to the database', error: error.message, databaseUrl })
     return stopInstance()
   }
